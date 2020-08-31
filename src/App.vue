@@ -6,6 +6,28 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>{{message}}</h1>
+
+<!-- Homework begin -->
+
+    <input type="text" v-model="todo">
+    <button @click="save" v-if="arrayToDo.length <10">Add</button>
+    <p v-else>No more allowed</p>
+
+    <ul >
+      <li v-for="(todoo, i) in arrayToDo" :key="i">
+        {{arrayToDo[i]}}
+        <button @click="remove(i)">Delete</button>
+      </li>
+    </ul>
+
+<!-- Homework end -->
+
+    <hr>
+    <br>
+    <br>
+    <hr>
+
+    <h2>{{message2}}</h2>
     
     <!-- <button v-on:click="increase">Increase</button>
     <button v-on:click="decrease">Decrease</button> -->
@@ -17,12 +39,12 @@
     <p>{{counter > 10 ? "Greater than 10": "Smaller than 10" }}</p>
     <p>result: {{result()}}</p>
 
-
-
   </div>
 </template>
 
 <script>
+
+// <!-- Homework begin -->
 
 export default {
   name: "App",
@@ -30,6 +52,12 @@ export default {
   data () {
     return {
       message: "HomeWork-1",
+      todo : "",
+      arrayToDo : [],
+
+// <!-- Homework end -->
+
+      message2: "Additional - counter",
       counter: 0,
       // result: "",
     }
@@ -39,7 +67,26 @@ export default {
 
   },
 
+// <!-- Homework begin -->
+
   methods: {
+    save() {
+      if (this.todo){
+        this.arrayToDo.push(this.todo);
+        this.todo = "";
+        console.log(this.arrayToDo);
+      }
+      else{
+        alert('task not added');
+      }
+    },
+
+    remove(i){
+      this.arrayToDo.splice(i, 1);
+      console.log(this.arrayToDo);
+    },
+
+// <!-- Homework end -->
 
     result () {
       return this.counter > 10 ? "Greater than 10": "Smaller than 10";
@@ -57,8 +104,6 @@ export default {
 
   }
 }
-
-
 
 </script>
 
