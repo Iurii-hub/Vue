@@ -74,7 +74,6 @@ export default {
       if (this.todo){
         this.arrayToDo.push(this.todo);
         this.todo = "";
-        console.log(this.arrayToDo);
       }
       else{
         alert('task not added');
@@ -83,7 +82,6 @@ export default {
 
     remove(i){
       this.arrayToDo.splice(i, 1);
-      console.log(this.arrayToDo);
     },
 
 // <!-- Homework end -->
