@@ -10,12 +10,12 @@
 <!-- Homework begin -->
 
     <input type="text" v-model="todo">
-    <button @click="save" v-if="arrayToDo.length <10">Add</button>
+    <button @click="add" v-if="arrayToDo.length <10">Add</button>
     <p v-else>No more allowed</p>
 
     <ul >
-      <li v-for="(todoo, i) in arrayToDo" :key="i">
-        {{arrayToDo[i]}}
+      <li v-for="(item, i) in arrayToDo" :key="i">
+        <span>{{item}}</span>
         <button @click="remove(i)">Delete</button>
       </li>
     </ul>
@@ -70,7 +70,7 @@ export default {
 // <!-- Homework begin -->
 
   methods: {
-    save() {
+    add() {
       if (this.todo){
         this.arrayToDo.push(this.todo);
         this.todo = "";
