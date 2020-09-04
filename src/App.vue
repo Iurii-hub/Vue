@@ -11,7 +11,6 @@
 
     <input type="text" v-model="todo">
     <button @click="add" v-if="arrayToDo.length <10">Add</button>
-    <p v-else>No more allowed</p>
 
     <ul >
       <li v-for="(item, i) in arrayToDo" :key="i">
@@ -52,8 +51,8 @@ export default {
   data () {
     return {
       message: "HomeWork-1",
-      todo : "",
-      arrayToDo : [],
+      todo: "",
+      arrayToDo: [],
 
 // <!-- Homework end -->
 
@@ -75,9 +74,7 @@ export default {
         this.arrayToDo.push(this.todo);
         this.todo = "";
       }
-      else{
-        alert('task not added');
-      }
+  
     },
 
     remove(i){
